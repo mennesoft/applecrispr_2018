@@ -52,7 +52,7 @@ public class AcSimpleAutonomousTest extends LinearOpMode {
         waitForStart();
 
         //Run
-        driveLeft.setPower(1);
+        driveLeft.setPower(-1);
         driveRight.setPower(1);
 
         sleep(1500);
