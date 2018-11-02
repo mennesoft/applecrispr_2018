@@ -49,7 +49,7 @@ See https://developer.android.com/guide/topics/ui/settings.html
             android:title="@string/prefedit_device_name_rc"
             android:summary="@string/prefedit_device_name_summary_rc"
             android:key="@string/pref_device_name"
-            android:defaultValue="AcController" />
+            android:defaultValue="" />
 
         <org.firstinspires.ftc.robotcore.internal.ui.ColorListPreference
             android:title="@string/prefedit_app_theme_rc"
