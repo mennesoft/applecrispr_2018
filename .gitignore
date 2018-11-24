@@ -1,6 +1,9 @@
-# built application files
+#built application files
 *.apk
 *.ap_
+
+# files for the dex VM
+*.dex
 
 # Java class files
 *.class
@@ -20,9 +23,15 @@ Thumbs.db
 
 # Android Studio
 *.iml
-.idea
+# .idea - remove # and comment out next line if want to rebuild project file each time
+.idea/workspace.xml
 .gradle
 build/
+.navigation
+captures/
+output.json
 
-*ASUS_PC_01*
+#NDK
+obj/
+.externalNativeBuild
 
