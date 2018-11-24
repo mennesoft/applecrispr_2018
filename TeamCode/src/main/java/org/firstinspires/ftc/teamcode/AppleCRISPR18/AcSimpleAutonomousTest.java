@@ -53,9 +53,22 @@ public class AcSimpleAutonomousTest extends LinearOpMode {
 
         //Run
         driveLeft.setPower(-1);
-        driveRight.setPower(1);
+        driveRight.setPower(0.8);
 
         sleep(1500);
+
+        driveLeft.setPower(1);
+        driveRight.setPower(-0.8);
+
+        sleep(1500);
+
+        driveLeft.setPower(1);
+        driveRight.setPower(0.8);
+
+        sleep(1500);
+
+        driveLeft.setPower(-1);
+        driveRight.setPower(0.8);
 
         revModule.allStop();
         stop();
