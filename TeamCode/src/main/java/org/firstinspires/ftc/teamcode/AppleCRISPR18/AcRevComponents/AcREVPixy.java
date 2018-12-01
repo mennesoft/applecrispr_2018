@@ -4,6 +4,8 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.I2cAddr;
 import com.qualcomm.robotcore.hardware.I2cDeviceSynch;
 
+import org.firstinspires.ftc.teamcode.AppleCRISPR18.Pixy.LegoPixyGeneral;
+
 /**
  * Created by Zach on 2/4/2018.
  */
@@ -86,6 +88,15 @@ public class AcREVPixy extends AcREVComponent {
         return getLargestDetectedObj(signature)[4];
     }
 
+    /**
+     * Gets the largest detected object when the Pixy is in LEGO I2C mode.
+     *
+     * @return The largest detected object, or <c>null</c> if it could not be determined.
+     */
+    public LegoPixyGeneral getLargestObjectLego() {
+        byte[] data = pixy.read(LegoPixyGeneral.Query, 6);
+        return LegoPixyGeneral.read(data);
+    }
 
     public int getLargestDetectedObjSig() {
         //this should combine the two bytes into an int signature, but I might have gotten it backwards (if it is not in big edian?)

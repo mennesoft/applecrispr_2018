@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.AppleCRISPR18.AcRevComponents.AcREVController;
 import org.firstinspires.ftc.teamcode.AppleCRISPR18.AcRevComponents.AcREVPixy;
+import org.firstinspires.ftc.teamcode.AppleCRISPR18.Pixy.LegoPixyGeneral;
 
 @Autonomous(name = "AcPixyTest", group = "Autonomous")
 public class AcPixyTest extends LinearOpMode {
@@ -24,7 +25,9 @@ public class AcPixyTest extends LinearOpMode {
         initialize();
         waitForStart();
 
-        telemetry.addLine(Integer.toString(pixy.getLargestDetectedObjSig()));
+        LegoPixyGeneral largest = pixy.getLargestObjectLego();
+        String message = "Largest: " + ((largest == null) ? "(null)" : largest.toString());
+        telemetry.addLine(message);
         telemetry.update();
         stop();
     }
