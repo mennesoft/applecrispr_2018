@@ -36,12 +36,12 @@ public class LegoPixyGeneral {
     /**
      * Backing field for the width of the largest object.
      */
-    private final byte width;
+    private final int width;
 
     /**
      * Backing field for the height of the largest object.
      */
-    private final byte height;
+    private final int height;
 
     /**
      * Constructor to define all fields. This class is immutable.
@@ -58,7 +58,7 @@ public class LegoPixyGeneral {
      * @param h   Height of largest block, ranging between 1 and 200. A height of 200 is the full
      *            height of Pixy’s image.
      */
-    private LegoPixyGeneral(short sig, byte x, byte y, byte w, byte h) {
+    private LegoPixyGeneral(short sig, int x, int y, int w, int h) {
         signature = sig;
         center = new Point(x, y);
         width = w;
@@ -78,10 +78,10 @@ public class LegoPixyGeneral {
         if (data.length < 6) return null;
 
         short sig = PixyUtil.getWord(data, 0);
-        byte x = data[2];
-        byte y = data[3];
-        byte w = data[4];
-        byte h = data[5];
+        int x = data[2];
+        int y = data[3];
+        int w = data[4];
+        int h = data[5];
 
         return new LegoPixyGeneral(sig, x, y, w, h);
     }
@@ -113,7 +113,7 @@ public class LegoPixyGeneral {
      *
      * @return The height of the largest detected block.
      */
-    public byte getHeight() {
+    public int getHeight() {
         return height;
     }
 
@@ -122,7 +122,7 @@ public class LegoPixyGeneral {
      *
      * @return The width of the largest detected block.
      */
-    public byte getWidth() {
+    public int getWidth() {
         return width;
     }
 

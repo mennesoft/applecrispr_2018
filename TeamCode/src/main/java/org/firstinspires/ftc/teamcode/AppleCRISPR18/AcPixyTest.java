@@ -16,7 +16,7 @@ public class AcPixyTest extends LinearOpMode {
 
     private void initialize() {
         pixy = (AcREVPixy) controller.add(new AcREVPixy("pixy"));
-        telemetry.addData("Init successful: ", controller.initialize(hardwareMap));
+        telemetry.addData("Epic time: ", controller.initialize(hardwareMap));
         telemetry.update();
     }
 
@@ -25,10 +25,16 @@ public class AcPixyTest extends LinearOpMode {
         initialize();
         waitForStart();
 
-        LegoPixyGeneral largest = pixy.getLargestObjectLego();
-        String message = "Largest: " + ((largest == null) ? "(null)" : largest.toString());
-        telemetry.addLine(message);
-        telemetry.update();
+        for (int i = 0; i < 60; i++) {
+            LegoPixyGeneral largest = pixy.getLargestObjectLego();
+            String message = "Largest: " + ((largest == null) ? "(null)" : largest.toString());
+            telemetry.addLine(message);
+            telemetry.update();
+            sleep(1000);
+        }
+        /*
+        Pixy camera's far right is -1, far left is 1, and middle is 128 or -127
+         */
         stop();
     }
 }

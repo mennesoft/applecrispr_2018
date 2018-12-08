@@ -119,8 +119,13 @@ public class AcREVPixy extends AcREVComponent {
         return getLargestDetectedObj()[5];
     }
 
+    public int getArraySize() {
+        byte[] objBytes = getLargestDetectedObj();
+        return objBytes.length;
+    }
+
     public int[] getLargestDectedObjInfo(int signature) {
-        //fill array with array returned by pixy, then reuturn that array
+        //fill array with array returned by pixy, then return that array
         byte[] objBytes = getLargestDetectedObj(signature);
         int[] objInfo = new int[5];
         for (int i = 0; i < 5; i++) {
