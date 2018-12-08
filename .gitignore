@@ -24,6 +24,7 @@ Thumbs.db
 # Android Studio
 *.iml
 # .idea - remove # and comment out next line if want to rebuild project file each time
+.idea/libraries/
 .idea/workspace.xml
 .gradle
 build/

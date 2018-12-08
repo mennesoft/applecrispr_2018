@@ -119,8 +119,13 @@ public class AcREVPixy extends AcREVComponent {
         return getLargestDetectedObj()[5];
     }
 
+    public int getArraySize() {
+        byte[] objBytes = getLargestDetectedObj();
+        return objBytes.length;
+    }
+
     public int[] getLargestDectedObjInfo(int signature) {
-        //fill array with array returned by pixy, then reuturn that array
+        //fill array with array returned by pixy, then return that array
         byte[] objBytes = getLargestDetectedObj(signature);
         int[] objInfo = new int[5];
         for (int i = 0; i < 5; i++) {
@@ -131,7 +136,7 @@ public class AcREVPixy extends AcREVComponent {
 
     public int[] getLargestDectedObjInfo() {
         byte[] objBytes = getLargestDetectedObj();
-        int[] objInfo = new int[5];
+        int[] objInfo = new int[99];
         objInfo[0] = ((int) objBytes[0] << 8) | objBytes[1];
         for (int i = 1; i < 6; i++) {
             objInfo[i] = objBytes[i];
@@ -141,7 +146,7 @@ public class AcREVPixy extends AcREVComponent {
 
     public int[] getLargestDectedObjXY(int signature) {
         byte[] objBytes = getLargestDetectedObj(signature);
-        int[] objInfo = new int[2];
+        int[] objInfo = new int[3];
         for (int i = 1; i < 3; i++) {
             objInfo[i] = objBytes[i];
         }
@@ -150,7 +155,7 @@ public class AcREVPixy extends AcREVComponent {
 
     public int[] getLargestDectedObjXY() {
         byte[] objBytes = getLargestDetectedObj();
-        int[] objInfo = new int[2];
+        int[] objInfo = new int[99];
         for (int i = 2; i < 4; i++) {
             objInfo[i] = objBytes[i];
         }
@@ -159,7 +164,7 @@ public class AcREVPixy extends AcREVComponent {
 
     public int[] getLargestDectedObjWH(int signature) {
         byte[] objBytes = getLargestDetectedObj(signature);
-        int[] objInfo = new int[2];
+        int[] objInfo = new int[4];
         for (int i = 3; i < 5; i++) {
             objInfo[i] = objBytes[i];
         }
@@ -168,7 +173,7 @@ public class AcREVPixy extends AcREVComponent {
 
     public int[] getLargestDectedObjWH() {
         byte[] objBytes = getLargestDetectedObj();
-        int[] objInfo = new int[2];
+        int[] objInfo = new int[5];
         for (int i = 4; i < 6; i++) {
             objInfo[i] = objBytes[i];
         }
