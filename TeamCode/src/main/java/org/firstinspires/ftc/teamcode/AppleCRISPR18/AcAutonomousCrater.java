@@ -62,6 +62,7 @@ public class AcAutonomousCrater extends LinearOpMode {
         int x = object.getCenter().x;
         String position;
 
+        // this is a comment to test the push to GitHub
         if (x > -95 && x <0) {
             position = "right";
             driveLeft.setPower(1);
