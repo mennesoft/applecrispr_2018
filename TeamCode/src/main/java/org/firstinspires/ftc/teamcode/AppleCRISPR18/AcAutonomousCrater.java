@@ -10,10 +10,10 @@ import org.firstinspires.ftc.teamcode.AppleCRISPR18.Pixy.LegoPixyGeneral;
 
 @Autonomous (name = "AcAutonomousCrater", group = "Autonomous")
 public class AcAutonomousCrater extends LinearOpMode {
-    AcREVController controller = new AcREVController();
-    AcREVMotorPair driveLeft;
-    AcREVMotorPair driveRight;
-    AcREVPixy pixy;
+    private AcREVController controller = new AcREVController();
+    private AcREVMotorPair driveLeft;
+    private AcREVMotorPair driveRight;
+    private AcREVPixy pixy;
 
     private void initialize() {
         driveLeft = (AcREVMotorPair) controller.add(new AcREVMotorPair("drive-fl:drive-bl"));
@@ -54,6 +54,9 @@ public class AcAutonomousCrater extends LinearOpMode {
 
         driveLeft.setPower(1);
         driveRight.setPower(-0.8);
+
+        sleep(175);
+
         driveLeft.stop();
         driveRight.stop();
 
@@ -62,7 +65,6 @@ public class AcAutonomousCrater extends LinearOpMode {
         int x = object.getCenter().x;
         String position;
 
-        // this is a comment to test the push to GitHub
         if (x > -95 && x <0) {
             position = "right";
             driveLeft.setPower(1);
@@ -159,7 +161,7 @@ public class AcAutonomousCrater extends LinearOpMode {
         driveLeft.setPower(1);
         driveRight.setPower(0.8);
 
-        sleep(250);
+        sleep(342);
 
         driveLeft.setPower(1);
         driveRight.setPower(-0.8);
