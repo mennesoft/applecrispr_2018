@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.AppleCRISPR18.AcRevComponents.AcREVController;
+import org.firstinspires.ftc.teamcode.AppleCRISPR18.AcRevComponents.AcREVMotor;
 import org.firstinspires.ftc.teamcode.AppleCRISPR18.AcRevComponents.AcREVMotorPair;
 import org.firstinspires.ftc.teamcode.AppleCRISPR18.AcRevComponents.AcREVPixy;
 import org.firstinspires.ftc.teamcode.AppleCRISPR18.Pixy.LegoPixyGeneral;
@@ -14,11 +15,13 @@ public class AcAutonomousDepot extends LinearOpMode {
     private AcREVMotorPair driveLeft;
     private AcREVMotorPair driveRight;
     private AcREVPixy pixy;
+    private AcREVMotor actuator;
 
     private void initialize() {
         driveLeft = (AcREVMotorPair) controller.add(new AcREVMotorPair("drive-fl:drive-bl"));
         driveRight = (AcREVMotorPair) controller.add(new AcREVMotorPair("drive-fr:drive-br"));
         pixy = (AcREVPixy) controller.add(new AcREVPixy("pixy"));
+        actuator = (AcREVMotor) controller.add(new AcREVMotor("actuator"));
 
         telemetry.addData("Epic time", controller.initialize(hardwareMap));
         telemetry.update();
@@ -50,6 +53,12 @@ public class AcAutonomousDepot extends LinearOpMode {
         driveLeft.setPower(-1);
         driveRight.setPower(-0.8);
          */
+
+        actuator.setPower(1);
+
+        sleep(500);
+
+        actuator.stop();
 
         sleep(1000);
 
@@ -94,8 +103,7 @@ public class AcAutonomousDepot extends LinearOpMode {
 
             driveLeft.stop();
             driveRight.stop();
-        }
-        else if (x <= -95 || x >= 95) {
+        } else if (x <= -95 || x >= 95) {
             position = "middle";
             driveLeft.setPower(1);
             driveRight.setPower(-0.8);
@@ -119,8 +127,7 @@ public class AcAutonomousDepot extends LinearOpMode {
 
             driveLeft.stop();
             driveRight.stop();
-        }
-        else {
+        } else {
             position = "left";
             driveRight.setPower(-1);
 
