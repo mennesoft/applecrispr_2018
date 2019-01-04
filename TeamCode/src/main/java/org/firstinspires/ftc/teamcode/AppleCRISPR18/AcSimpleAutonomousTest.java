@@ -4,9 +4,9 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.AppleCRISPR18.AcRevComponents.AcREVController;
-import org.firstinspires.ftc.teamcode.AppleCRISPR18.AcRevComponents.AcREVMotorPair;
+import org.firstinspires.ftc.teamcode.AppleCRISPR18.AcRevComponents.AcREVMotor;
 
-/**
+/*
  * Created by Jared/Riley on 07-Jan-18. Modified
  */
 
@@ -30,48 +30,50 @@ public class AcSimpleAutonomousTest extends LinearOpMode {
     private AcREVController revModule = new AcREVController();
 
     // Drive motors, paired for tank driving
-    private AcREVMotorPair driveLeft;
-    private AcREVMotorPair driveRight;
+    private AcREVMotor driveLeft;
+    private AcREVMotor driveRight;
 
     /**
      * This method performs initialization for our specific robot.
      */
     private void ourInit() {
 
-        driveLeft = (AcREVMotorPair) revModule.add(new AcREVMotorPair("drive-fl:drive-bl"));
-        driveRight = (AcREVMotorPair) revModule.add(new AcREVMotorPair("drive-fr:drive-br"));
+        driveLeft = (AcREVMotor) revModule.add(new AcREVMotor("drive-l"));
+        driveRight = (AcREVMotor) revModule.add(new AcREVMotor("drive-r"));
 
-        telemetry.addData("Init successful: ", revModule.initialize(hardwareMap));
+        telemetry.addData("Epic time: ", revModule.initialize(hardwareMap));
         telemetry.update();
     }
 
     @Override
-    public void runOpMode() throws InterruptedException {
+    public void runOpMode() {
         // Init
         ourInit();
         waitForStart();
 
-        //Backwards
-        driveLeft.setPower(-1);
-        driveRight.setPower(0.8);
-
-        sleep(1500);
-
         //Forwards
         driveLeft.setPower(1);
-        driveRight.setPower(-0.8);
+        driveRight.setPower(1);
 
-        sleep(1500);
+        sleep(2000);
+
+        //Backwards
+        driveLeft.setPower(-1);
+        driveRight.setPower(-1);
+
+        sleep(2000);
 
         //Turn left
         driveLeft.setPower(1);
-        driveRight.setPower(0.8);
+        driveRight.setPower(-1);
 
-        sleep(1500);
+        sleep(4000);
 
         //Turn right
         driveLeft.setPower(-1);
-        driveRight.setPower(-0.8);
+        driveRight.setPower(1);
+
+        sleep(4000);
 
         revModule.allStop();
         stop();
