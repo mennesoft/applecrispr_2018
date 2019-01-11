@@ -15,12 +15,14 @@ public class AcAutonomousDepot extends LinearOpMode {
     private AcREVMotor driveRight;
     private AcREVPixy pixy;
     private AcREVMotor lifter;
+    private AcREVMotor collector;
 
     private void initialize() {
         driveLeft = (AcREVMotor) controller.add(new AcREVMotor("drive-l"));
         driveRight = (AcREVMotor) controller.add(new AcREVMotor("drive-r"));
         pixy = (AcREVPixy) controller.add(new AcREVPixy("pixy"));
         lifter = (AcREVMotor) controller.add(new AcREVMotor("lifter"));
+        collector = (AcREVMotor) controller.add(new AcREVMotor("collector"));
 
         telemetry.addData("Epic time", controller.initialize(hardwareMap));
         telemetry.update();
@@ -165,5 +167,11 @@ public class AcAutonomousDepot extends LinearOpMode {
 
         driveLeft.stop();
         driveRight.stop();
+
+        collector.setPower(1);
+
+        sleep(500);
+
+        collector.stop();
     }
 }

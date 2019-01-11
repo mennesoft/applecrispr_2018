@@ -15,11 +15,13 @@ public class AcAutonomousCrater extends LinearOpMode {
     private AcREVMotor driveRight;
     private AcREVPixy pixy;
     private AcREVMotor lifter;
+    private AcREVMotor collector;
 
     private void initialize() {
         driveLeft = (AcREVMotor) controller.add(new AcREVMotor("drive-l"));
         driveRight = (AcREVMotor) controller.add(new AcREVMotor("drive-r"));
         lifter = (AcREVMotor) controller.add(new AcREVMotor("lifter"));
+        collector = (AcREVMotor) controller.add(new AcREVMotor("collector"));
 
         pixy = (AcREVPixy) controller.add(new AcREVPixy("pixy"));
 
@@ -176,5 +178,11 @@ public class AcAutonomousCrater extends LinearOpMode {
 
         driveLeft.stop();
         driveRight.stop();
+
+        collector.setPower(1);
+
+        sleep(500);
+
+        collector.stop();
     }
 }
