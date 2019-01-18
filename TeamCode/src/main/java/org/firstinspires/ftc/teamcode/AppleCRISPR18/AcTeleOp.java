@@ -14,6 +14,8 @@ public class AcTeleOp extends OpMode {
     private AcREVMotor lifter;
     private AcREVMotor collector;
     private boolean isSlow = false;
+    private boolean canBeSwitched = false;
+    private int clock = 0;
 
     @Override
     public void init() {
@@ -42,11 +44,17 @@ public class AcTeleOp extends OpMode {
      */
 
     private void move() {
+        if (!canBeSwitched) {
+            clock += 1;
+        }
+        if (clock > 500) {
+            clock = 0;
+            canBeSwitched = true;
+        }
         if (gamepad1.b) {
-            if (isSlow) {
-                isSlow = false;
-            } else {
-                isSlow = true;
+            if (canBeSwitched) {
+                isSlow = !isSlow;
+                canBeSwitched = false;
             }
         }
         if (gamepad1.right_stick_y == 0) {
@@ -57,12 +65,12 @@ public class AcTeleOp extends OpMode {
         }
         if (gamepad1.right_stick_y > 0.1 || gamepad1.right_stick_y < -0.1) {
             if (isSlow) {
-                driveRight.setPower(gamepad1.right_stick_y / -5);
+                driveRight.setPower(gamepad1.right_stick_y / -3);
             } else driveRight.setPower(gamepad1.right_stick_y * -1);
         }
         if (gamepad1.left_stick_y > 0.1 || gamepad1.left_stick_y < -0.1) {
             if (isSlow) {
-                driveLeft.setPower(gamepad1.left_stick_y / -5);
+                driveLeft.setPower(gamepad1.left_stick_y / -3);
             } else driveLeft.setPower(gamepad1.left_stick_y * -1);
         }
     }
@@ -78,10 +86,10 @@ public class AcTeleOp extends OpMode {
 
     private void lift() {
         if (gamepad1.dpad_up) {
-            lifter.setPower(0.2);
+            lifter.setPower(1);
         } else lifter.stop();
         if (gamepad1.dpad_down) {
-            lifter.setPower(-0.2);
+            lifter.setPower(-1);
         } else lifter.stop();
     }
 

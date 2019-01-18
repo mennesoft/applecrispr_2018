@@ -63,6 +63,31 @@ public class AcAutonomousCrater extends LinearOpMode {
         lifter.stop();
 
         driveLeft.setPower(1);
+        driveRight.setPower(-1);
+
+        sleep(500);
+
+        driveLeft.setPower(1);
+        driveRight.setPower(1);
+
+        sleep(250);
+
+        driveLeft.setPower(-1);
+        driveRight.setPower(1);
+
+        sleep(500);
+
+        driveLeft.setPower(-1);
+        driveRight.setPower(-1);
+
+        sleep(150);
+
+        driveLeft.stop();
+        driveRight.stop();
+
+        sleep(500);
+
+        driveLeft.setPower(1);
         driveRight.setPower(1);
 
         sleep(1000);
