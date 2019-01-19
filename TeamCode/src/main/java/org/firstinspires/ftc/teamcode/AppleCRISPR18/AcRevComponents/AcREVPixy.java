@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.hardware.I2cAddr;
 import com.qualcomm.robotcore.hardware.I2cDeviceSynch;
 
 import org.firstinspires.ftc.teamcode.AppleCRISPR18.Pixy.LegoPixyGeneral;
+import org.firstinspires.ftc.teamcode.AppleCRISPR18.Pixy.LegoPixySpecificType;
 
 /**
  * Created by Zach on 2/4/2018.
@@ -96,6 +97,11 @@ public class AcREVPixy extends AcREVComponent {
     public LegoPixyGeneral getLargestObjectLego() {
         byte[] data = pixy.read(LegoPixyGeneral.Query, 6);
         return LegoPixyGeneral.read(data);
+    }
+
+    public LegoPixySpecificType getBlock1() {
+        byte[] data = pixy.read(LegoPixySpecificType.Query1, 5);
+        return LegoPixySpecificType.read(1, data);
     }
 
     public int getLargestDetectedObjSig() {

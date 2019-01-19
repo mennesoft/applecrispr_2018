@@ -57,10 +57,10 @@ public class AcTeleOp extends OpMode {
                 canBeSwitched = false;
             }
         }
-        if (gamepad1.right_stick_y == 0) {
+        if (gamepad1.right_stick_y <= 0.1) {
             driveLeft.stop();
         }
-        if (gamepad1.left_stick_y == 0) {
+        if (gamepad1.left_stick_y <= 0.1) {
             driveRight.stop();
         }
         if (gamepad1.right_stick_y > 0.1 || gamepad1.right_stick_y < -0.1) {

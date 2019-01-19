@@ -7,6 +7,7 @@ import org.firstinspires.ftc.teamcode.AppleCRISPR18.AcRevComponents.AcREVControl
 import org.firstinspires.ftc.teamcode.AppleCRISPR18.AcRevComponents.AcREVMotor;
 import org.firstinspires.ftc.teamcode.AppleCRISPR18.AcRevComponents.AcREVPixy;
 import org.firstinspires.ftc.teamcode.AppleCRISPR18.Pixy.LegoPixyGeneral;
+import org.firstinspires.ftc.teamcode.AppleCRISPR18.Pixy.LegoPixySpecificType;
 
 @Autonomous (name = "AcAutonomousCrater", group = "Autonomous")
 public class AcAutonomousCrater extends LinearOpMode {
@@ -38,6 +39,8 @@ public class AcAutonomousCrater extends LinearOpMode {
 
         LegoPixyGeneral object = pixy.getLargestObjectLego();
 
+        //LegoPixySpecificType object = pixy.getBlock1();
+
         /*
         //Forwards
         driveLeft.setPower(1);
@@ -58,39 +61,29 @@ public class AcAutonomousCrater extends LinearOpMode {
 
         lifter.setPower(1);
 
-        sleep(500);
+        sleep(11500);
 
         lifter.stop();
 
-        driveLeft.setPower(1);
-        driveRight.setPower(-1);
-
-        sleep(500);
-
-        driveLeft.setPower(1);
-        driveRight.setPower(1);
-
-        sleep(250);
-
         driveLeft.setPower(-1);
         driveRight.setPower(1);
 
         sleep(500);
 
-        driveLeft.setPower(-1);
+        driveLeft.setPower(0.5);
+        driveRight.setPower(0.5);
+
+        sleep(100);
+
+        driveLeft.setPower(1);
         driveRight.setPower(-1);
 
-        sleep(150);
+        sleep(700);
 
         driveLeft.stop();
         driveRight.stop();
 
         sleep(500);
-
-        driveLeft.setPower(1);
-        driveRight.setPower(1);
-
-        sleep(1000);
 
         driveLeft.stop();
         driveRight.stop();
@@ -106,13 +99,13 @@ public class AcAutonomousCrater extends LinearOpMode {
 
             sleep(500);
 
-            driveLeft.setPower(1);
-            driveRight.setPower(1);
+            driveLeft.setPower(0.5);
+            driveRight.setPower(0.5);
 
             sleep(1500);
 
-            driveLeft.setPower(-1);
-            driveRight.setPower(-1);
+            driveLeft.setPower(-0.5);
+            driveRight.setPower(-0.5);
 
             sleep(1000);
 
@@ -121,8 +114,8 @@ public class AcAutonomousCrater extends LinearOpMode {
 
             sleep(1000);
 
-            driveLeft.setPower(1);
-            driveRight.setPower(1);
+            driveLeft.setPower(0.5);
+            driveRight.setPower(0.5);
 
             sleep(1000);
 
@@ -130,13 +123,13 @@ public class AcAutonomousCrater extends LinearOpMode {
             driveRight.stop();
         } else if (x <= -95 || x >= 95) {
             position = "middle";
-            driveLeft.setPower(1);
-            driveRight.setPower(1);
+            driveLeft.setPower(0.5);
+            driveRight.setPower(0.5);
 
             sleep(1500);
 
-            driveLeft.setPower(-1);
-            driveRight.setPower(-1);
+            driveLeft.setPower(-0.5);
+            driveRight.setPower(-0.5);
 
             sleep(1000);
 
@@ -145,8 +138,8 @@ public class AcAutonomousCrater extends LinearOpMode {
 
             sleep(1000);
 
-            driveLeft.setPower(1);
-            driveRight.setPower(1);
+            driveLeft.setPower(0.5);
+            driveRight.setPower(0.5);
 
             sleep(500);
 
@@ -158,13 +151,13 @@ public class AcAutonomousCrater extends LinearOpMode {
 
             sleep(500);
 
-            driveLeft.setPower(1);
-            driveRight.setPower(1);
+            driveLeft.setPower(0.5);
+            driveRight.setPower(0.5);
 
             sleep(1500);
 
-            driveLeft.setPower(-1);
-            driveRight.setPower(-1);
+            driveLeft.setPower(-0.5);
+            driveRight.setPower(-0.5);
 
             sleep(1000);
 
@@ -173,8 +166,8 @@ public class AcAutonomousCrater extends LinearOpMode {
 
             sleep(1000);
 
-            driveLeft.setPower(1);
-            driveRight.setPower(1);
+            driveLeft.setPower(0.5);
+            driveRight.setPower(0.5);
 
             sleep(1000);
 
@@ -186,8 +179,8 @@ public class AcAutonomousCrater extends LinearOpMode {
         telemetry.addData("Position", position);
         telemetry.update();
 
-        driveLeft.setPower(1);
-        driveRight.setPower(1);
+        driveLeft.setPower(0.5);
+        driveRight.setPower(0.5);
 
         sleep(2000);
 
@@ -196,8 +189,8 @@ public class AcAutonomousCrater extends LinearOpMode {
 
         sleep(1000);
 
-        driveLeft.setPower(1);
-        driveRight.setPower(1);
+        driveLeft.setPower(0.5);
+        driveRight.setPower(0.5);
 
         sleep(4000);
 
