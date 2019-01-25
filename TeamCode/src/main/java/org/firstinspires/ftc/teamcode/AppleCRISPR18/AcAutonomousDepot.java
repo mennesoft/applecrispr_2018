@@ -58,7 +58,7 @@ public class AcAutonomousDepot extends LinearOpMode {
 
         lifter.setPower(1);
 
-        sleep(11500);
+        sleep(12500);
 
         lifter.stop();
 
@@ -116,12 +116,12 @@ public class AcAutonomousDepot extends LinearOpMode {
             driveLeft.setPower(-0.5);
             driveRight.setPower(-0.5);
 
-            sleep(1000);
+            sleep(300);
 
-            driveLeft.setPower(-1);
+            /*driveLeft.setPower(-1);
             driveRight.setPower(1);
 
-            sleep(1000);
+            sleep(1000);*/
 
             driveLeft.setPower(0.5);
             driveRight.setPower(0.5);
@@ -140,12 +140,12 @@ public class AcAutonomousDepot extends LinearOpMode {
             driveLeft.setPower(-0.5);
             driveRight.setPower(-0.5);
 
-            sleep(1000);
+            sleep(300);
 
-            driveLeft.setPower(-1);
+            /*driveLeft.setPower(-1);
             driveRight.setPower(1);
 
-            sleep(1000);
+            sleep(1000);*/
 
             driveLeft.setPower(0.5);
             driveRight.setPower(0.5);
@@ -168,12 +168,12 @@ public class AcAutonomousDepot extends LinearOpMode {
             driveLeft.setPower(-0.5);
             driveRight.setPower(-0.5);
 
-            sleep(1000);
+            sleep(300);
 
-            driveLeft.setPower(-1);
+            /*driveLeft.setPower(-1);
             driveRight.setPower(1);
 
-            sleep(1000);
+            sleep(1000);*/
 
             driveLeft.setPower(0.5);
             driveRight.setPower(0.5);
@@ -191,14 +191,14 @@ public class AcAutonomousDepot extends LinearOpMode {
         driveLeft.setPower(0.5);
         driveRight.setPower(0.5);
 
-        sleep(2000);
+        sleep(1000);
 
         driveLeft.stop();
         driveRight.stop();
 
         collector.setPower(1);
 
-        sleep(500);
+        sleep(2000);
 
         collector.stop();
     }

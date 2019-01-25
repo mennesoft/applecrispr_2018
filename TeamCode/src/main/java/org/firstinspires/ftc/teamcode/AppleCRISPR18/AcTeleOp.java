@@ -15,6 +15,7 @@ public class AcTeleOp extends OpMode {
     private AcREVMotor collector;
     private boolean isSlow = false;
     private boolean canBeSwitched = false;
+    private boolean isStop = false;
     private int clock = 0;
 
     @Override
@@ -95,15 +96,19 @@ public class AcTeleOp extends OpMode {
 
     private void allStop() {
         if (gamepad1.start && gamepad1.back) {
-            controller.allStop();
+            stop();
+            isStop = true;
         }
     }
 
     @Override
     public void loop() {
-        move();
-        collect();
-        lift();
-        allStop();
+        if (!isStop) {
+            move();
+            collect();
+            lift();
+            allStop();
+        }
+
     }
 }
