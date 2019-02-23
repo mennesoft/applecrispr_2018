@@ -7,7 +7,6 @@ import org.firstinspires.ftc.teamcode.AppleCRISPR18.AcRevComponents.AcREVControl
 import org.firstinspires.ftc.teamcode.AppleCRISPR18.AcRevComponents.AcREVMotor;
 import org.firstinspires.ftc.teamcode.AppleCRISPR18.AcRevComponents.AcREVPixy;
 import org.firstinspires.ftc.teamcode.AppleCRISPR18.Pixy.LegoPixyGeneral;
-import org.firstinspires.ftc.teamcode.AppleCRISPR18.Pixy.LegoPixySpecificType;
 
 @Autonomous (name = "AcAutonomousDepot", group = "Autonomous")
 public class AcAutonomousDepot extends LinearOpMode {
@@ -58,7 +57,7 @@ public class AcAutonomousDepot extends LinearOpMode {
 
         lifter.setPower(1);
 
-        sleep(12500);
+        sleep(13000);
 
         lifter.stop();
 
@@ -72,134 +71,116 @@ public class AcAutonomousDepot extends LinearOpMode {
         driveLeft.setPower(0.5);
         driveRight.setPower(0.5);
 
-        sleep(100);
+        sleep(1);
 
         driveLeft.setPower(1);
         driveRight.setPower(-1);
 
-        sleep(700);
-
-        driveLeft.setPower(-0.5);
-        driveRight.setPower(-0.5);
-
-        sleep(75);
-
-        driveLeft.stop();
-        driveRight.stop();
-
-        sleep(500);
+        sleep(650);
 
         driveLeft.setPower(0.5);
         driveRight.setPower(0.5);
 
-        sleep(1000);
+        sleep(100);
+
+        driveLeft.setPower(-1);
+        driveRight.setPower(1);
+
+        sleep(200);
 
         driveLeft.stop();
         driveRight.stop();
 
-        sleep(500);
-
         int x = object.getCenter().x;
-        String position;
 
         if (x > -95 && x <0) {
-            position = "right";
-            driveLeft.setPower(1);
+            telemetry.addData("X", x);
+            telemetry.addData("Position", "Right");
+            telemetry.update();
 
-            sleep(500);
+            driveLeft.setPower(1);
+            driveRight.setPower(-1);
+
+            sleep(250);
 
             driveLeft.setPower(0.5);
             driveRight.setPower(0.5);
 
-            sleep(1500);
+            sleep(1400);
 
-            driveLeft.setPower(-0.5);
-            driveRight.setPower(-0.5);
-
-            sleep(300);
-
-            /*driveLeft.setPower(-1);
+            driveLeft.setPower(-1);
             driveRight.setPower(1);
 
-            sleep(1000);*/
+            sleep(700);
 
             driveLeft.setPower(0.5);
             driveRight.setPower(0.5);
 
-            sleep(1000);
+            sleep(300);
 
             driveLeft.stop();
             driveRight.stop();
         } else if (x <= -95 || x >= 95) {
-            position = "middle";
-            driveLeft.setPower(0.5);
-            driveRight.setPower(0.5);
-
-            sleep(1500);
-
-            driveLeft.setPower(-0.5);
-            driveRight.setPower(-0.5);
-
-            sleep(300);
-
-            /*driveLeft.setPower(-1);
-            driveRight.setPower(1);
-
-            sleep(1000);*/
+            telemetry.addData("X", x);
+            telemetry.addData("Position", "Middle");
+            telemetry.update();
 
             driveLeft.setPower(0.5);
             driveRight.setPower(0.5);
 
-            sleep(500);
+            sleep(1600);
 
             driveLeft.stop();
             driveRight.stop();
         } else {
-            position = "left";
+            telemetry.addData("X", x);
+            telemetry.addData("Position", "Left");
+            telemetry.update();
+
+            driveLeft.setPower(-1);
             driveRight.setPower(1);
 
-            sleep(500);
+            sleep(250);
 
             driveLeft.setPower(0.5);
             driveRight.setPower(0.5);
 
-            sleep(1500);
+            sleep(1400);
 
-            driveLeft.setPower(-0.5);
-            driveRight.setPower(-0.5);
+            driveLeft.setPower(1);
+            driveRight.setPower(-1);
+
+            sleep(450);
+
+            driveLeft.setPower(0.5);
+            driveRight.setPower(0.5);
 
             sleep(300);
-
-            /*driveLeft.setPower(-1);
-            driveRight.setPower(1);
-
-            sleep(1000);*/
-
-            driveLeft.setPower(0.5);
-            driveRight.setPower(0.5);
-
-            sleep(1000);
 
             driveLeft.stop();
             driveRight.stop();
         }
 
-        telemetry.addData("X", x);
-        telemetry.addData("Position", position);
-        telemetry.update();
+
+
+        collector.setPower(1);
+
+        sleep(500);
+
+        collector.stop();
+
+        driveLeft.setPower(-1);
+        driveRight.setPower(1);
+
+        sleep(300);
 
         driveLeft.setPower(0.5);
         driveRight.setPower(0.5);
 
-        sleep(1000);
-
-        driveLeft.stop();
-        driveRight.stop();
-
-        collector.setPower(1);
-
-        sleep(2000);
+        sleep(300);
 
         collector.stop();
+        driveLeft.stop();
+        driveRight.stop();
     }
 }

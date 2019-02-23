@@ -31,19 +31,16 @@ public class AcTeleOp extends OpMode {
 
     /*
     TANK DRIVE
-    Left stick = left wheel movement
-    Right stick = right wheel movement
+    Left stick = left side wheel movement
+    Right stick = right side wheel movement
 
     PRESS B
     Slow mode
-
     RIGHT TRIGGER
-    Suck
-
+    Pick up
     LEFT TRIGGER
-    Unsuck
+    Drop
      */
-
     private void move() {
         if (!canBeSwitched) {
             clock += 1;
@@ -58,29 +55,29 @@ public class AcTeleOp extends OpMode {
                 canBeSwitched = false;
             }
         }
-        if (gamepad1.right_stick_y <= 0.1) {
+        if (gamepad1.right_stick_y <= 0.4) {
             driveLeft.stop();
         }
-        if (gamepad1.left_stick_y <= 0.1) {
+        if (gamepad1.left_stick_y <= 0.4) {
             driveRight.stop();
         }
-        if (gamepad1.right_stick_y > 0.1 || gamepad1.right_stick_y < -0.1) {
+        if (gamepad1.right_stick_y > 0.4 || gamepad1.right_stick_y < -0.4) {
             if (isSlow) {
-                driveRight.setPower(gamepad1.right_stick_y / -3);
+                driveRight.setPower(gamepad1.right_stick_y / -2);
             } else driveRight.setPower(gamepad1.right_stick_y * -1);
         }
-        if (gamepad1.left_stick_y > 0.1 || gamepad1.left_stick_y < -0.1) {
+        if (gamepad1.left_stick_y > 0.4 || gamepad1.left_stick_y < -0.4) {
             if (isSlow) {
-                driveLeft.setPower(gamepad1.left_stick_y / -3);
+                driveLeft.setPower(gamepad1.left_stick_y / -2);
             } else driveLeft.setPower(gamepad1.left_stick_y * -1);
         }
     }
 
     private void collect() {
-        if (gamepad1.left_trigger > 0.1) {
+        if (gamepad1.left_trigger > 0.5) {
             collector.setPower(-1);
         } else collector.stop();
-        if (gamepad1.right_trigger > 0.1) {
+        if (gamepad1.right_trigger > 0.5) {
             collector.setPower(1);
         } else collector.stop();
     }

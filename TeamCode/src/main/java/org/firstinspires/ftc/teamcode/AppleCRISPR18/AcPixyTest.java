@@ -24,11 +24,11 @@ public class AcPixyTest extends LinearOpMode {
     public void runOpMode() {
         initialize();
         waitForStart();
-
+        LegoPixyGeneral largest = pixy.getLargestObjectLego();
+        int x;
         for (int i = 0; i < 60; i++) {
-            LegoPixyGeneral largest = pixy.getLargestObjectLego();
-            String message = "Largest: " + ((largest == null) ? "(null)" : largest.toString());
-            telemetry.addLine(message);
+            x = largest.getCenter().x;
+            telemetry.addData("X", x);
             telemetry.update();
             sleep(1000);
         }
