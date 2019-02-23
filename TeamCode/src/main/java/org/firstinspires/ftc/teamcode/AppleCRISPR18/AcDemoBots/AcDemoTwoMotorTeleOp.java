@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.AppleCRISPR18.AcRevComponents.AcREVController;
 import org.firstinspires.ftc.teamcode.AppleCRISPR18.AcRevComponents.AcREVMotor;
 
-@TeleOp (name = "AcDemoTwoMotor", group = "TeleOp")
-public class AcDemoTwoMotor extends OpMode {
+@TeleOp (name = "AcDemoTwoMotorTeleOp", group = "TeleOp")
+public class AcDemoTwoMotorTeleOp extends OpMode {
     private AcREVController controller = new AcREVController();
     private AcREVMotor left;
     private AcREVMotor right;
