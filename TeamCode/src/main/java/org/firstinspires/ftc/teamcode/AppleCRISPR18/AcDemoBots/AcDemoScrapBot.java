@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.AppleCRISPR18.AcRevComponents.AcREVController;
 import org.firstinspires.ftc.teamcode.AppleCRISPR18.AcRevComponents.AcREVMotor;
 
-@TeleOp (name = "AcDemoTwoMotorTeleOp", group = "TeleOp")
-public class AcDemoTwoMotorTeleOp extends OpMode {
+@TeleOp (name = "AcDemoScrapBot", group = "TeleOp")
+public class AcDemoScrapBot extends OpMode {
     private AcREVController controller = new AcREVController();
     private AcREVMotor left;
     private AcREVMotor right;
@@ -26,8 +26,8 @@ public class AcDemoTwoMotorTeleOp extends OpMode {
             left.setPower(gamepad1.left_stick_y);
         } else left.stop();
         if (gamepad1.right_stick_y > 0.5 || gamepad1.right_stick_y < -0.5) {
-            right.setPower(gamepad1.right_stick_y);
-        } else right.stop();
+            right.setPower(gamepad1.right_stick_y * -1 );
+    } else right.stop();
     }
 
     @Override
